@@ -22,5 +22,6 @@ test:
   database: flatiron_mod3_test
 
 production:
-  <<: *default
-  database: flatiron_mod3_production
+   <<: *default
+   adapter: postgresql
+   database: db/production.sqlite3
