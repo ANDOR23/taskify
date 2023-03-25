@@ -11,17 +11,24 @@ default: &default
 
 development:
   <<: *default
-  #database: db/development.sqlite3
-  database: flatiron_mod3_development
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: <%= ENV['DATABASE_HOST'] %>
+  database: taskify_develpment
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: flatiron_mod3_test
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: <%= ENV['DATABASE_HOST'] %>
+  database: taskify_test
 
 production:
-   <<: *default
-   adapter: postgresql
-   database: db/production.sqlite3
+  <<: *default
+  database: taskify_production
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
+
